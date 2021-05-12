@@ -128,8 +128,11 @@
       io = undefined;
     }
 
-    // Remove the attached Visibility API's change event listener.
-    document.removeEventListener("visibilitychange", onVisibilityChange);
+    // Check if we're on client side
+    if (typeof document !== 'undefined') {
+      // Remove the attached Visibility API's change event listener.
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    }
   });
 
   /**
